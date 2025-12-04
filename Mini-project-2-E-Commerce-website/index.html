@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>JK kart</title>
   </head>
   <body>
@@ -11,15 +12,15 @@
       <div clss="logo">JK kart</div>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Deals</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#deals">Deals</a></li>
+          <li><a href="#cta">Contact</a></li>
         </ul>
       </nav>
     </header>
     <!--Hero Section-->
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-text">
         <h1>Welcome to JK kart</h1>
         <p>Your one-stop shop for all your needs!</p>
@@ -28,31 +29,37 @@
     </section>
 
     <!--Featured products-->
-    <section class="products">
+    <section class="products" id="products">
       <h2>Featured Products</h2>
       <div class="product-grid">
         <div class="product-card">
-          <img />
-          <h3></h3>
-          <p></p>
-          <a></a>
+          <img
+            src="/Mini-project-2-E-Commerce-website/images/product1.jpg"
+            alt="cpu"
+          />
+          <h3>AMD Processor</h3>
+          <p>₹15,000</p>
         </div>
         <div class="product-card">
-          <img />
-          <h3></h3>
-          <p></p>
-          <a></a>
+          <img
+            src="/Mini-project-2-E-Commerce-website/images/product2.jpg"
+            alt="graphics card"
+          />
+          <h3>MIS graphics card</h3>
+          <p>₹20,000</p>
         </div>
         <div class="product-card">
-          <img />
-          <h3></h3>
-          <p></p>
-          <a></a>
+          <img
+            src="/Mini-project-2-E-Commerce-website/images/product3.jpg"
+            alt="ram"
+          />
+          <h3>DDR4 RAM 12GB</h3>
+          <p>₹8,000</p>
         </div>
       </div>
     </section>
     <!--CTA-section-->
-    <section>
+    <section class="cta" id="cta">
       <h2>Join the JK kart Newsletter</h2>
       <p>Get exclusive deals and early product releases.</p>
       <form>
@@ -61,7 +68,7 @@
       </form>
     </section>
     <!--Footer-->
-    <footer>
+    <footer id="footer">
       <p>&copy; 2025 JK kart. All rights reserved.</p>
     </footer>
   </body>

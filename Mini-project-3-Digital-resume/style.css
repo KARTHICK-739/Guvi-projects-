@@ -1,0 +1,455 @@
+/* ------------------------------
+         1. CSS VARIABLES (THEME)
+      ------------------------------ */
+:root {
+  --bg-color: #f5f5f7;
+  --card-bg: #ffffff;
+  --text-color: #1f2933;
+  --muted-text: #6b7280;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --border-color: #e5e7eb;
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-color: #020617;
+  --card-bg: #020617;
+  --text-color: #e5e7eb;
+  --muted-text: #9ca3af;
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.15);
+  --border-color: #1e293b;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ------------------------------
+         2. GLOBAL STYLES
+      ------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #dbeafe 0, var(--bg-color) 60%);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.resume-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  background: linear-gradient(
+    135deg,
+    rgba(148, 163, 184, 0.18),
+    rgba(37, 99, 235, 0.06)
+  );
+  border-radius: 24px;
+  padding: 1px;
+  box-shadow: var(--shadow-soft);
+}
+
+.resume {
+  border-radius: 23px;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ------------------------------
+         3. HEADER
+      ------------------------------ */
+.resume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+.brand-text h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+}
+
+.brand-text p {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.toggle-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.toggle-knob {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.toggle-switch.dark .toggle-knob {
+  transform: translateX(22px);
+}
+
+/* ------------------------------
+         4. LAYOUT (SIDEBAR + MAIN)
+      ------------------------------ */
+.resume-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  padding: 24px 28px 28px;
+}
+
+.sidebar,
+.main-content {
+  background-color: var(--card-bg);
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  padding: 20px 18px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-text);
+  margin-bottom: 8px;
+}
+
+/* Contact section */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.contact-item span.label {
+  font-weight: 600;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  background: radial-gradient(
+    circle at top left,
+    rgba(148, 163, 184, 0.3),
+    transparent 45%
+  );
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.skill-level-bar {
+  margin-top: 8px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.skill-level-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(to right, var(--accent), #a855f7);
+  width: 80%;
+  transition: width 0.3s ease;
+}
+
+.sidebar:hover .skill-level-fill {
+  width: 88%;
+}
+
+/* ------------------------------
+         5. MAIN CONTENT
+      ------------------------------ */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.summary {
+  background: radial-gradient(
+    circle at top left,
+    rgba(37, 99, 235, 0.09),
+    transparent 58%
+  );
+  border-radius: 16px;
+  padding: 14px 14px 14px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.summary p {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--muted-text);
+}
+
+.summary strong {
+  color: var(--text-color);
+}
+
+.tag-row {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+}
+
+/* Experience, Education, Projects */
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px dashed transparent;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.item:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.item-title {
+  font-weight: 600;
+}
+
+.item-meta {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+}
+
+.item-description {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+.item-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.item-tag {
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.05);
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.project-card {
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  background: radial-gradient(
+    circle at top,
+    rgba(37, 99, 235, 0.07),
+    transparent 60%
+  );
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+  border-color: var(--accent);
+}
+
+.project-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-top: 6px;
+  text-decoration: none;
+}
+
+.project-link::after {
+  content: "↗";
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover .project-link::after {
+  transform: translateX(2px) translateY(-1px);
+}
+
+/* ------------------------------
+         6. RESPONSIVE DESIGN
+      ------------------------------ */
+@media (max-width: 900px) {
+  .resume-body {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .main-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .resume-header {
+    padding: 14px 16px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .resume-body {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

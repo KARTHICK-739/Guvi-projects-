@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Resume - Your Name</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="resume-wrapper">
+      <div class="resume">
+        <!-- Header with Name + Theme Toggle -->
+        <header class="resume-header">
+          <div class="brand">
+            <div class="avatar">JK</div>
+            <div class="brand-text">
+              <h1>Karthick.J</h1>
+              <p>Frontend Developer · BCA Student</p>
+            </div>
+          </div>
+
+          <div class="theme-toggle">
+            <span class="toggle-label">Light</span>
+            <div id="themeSwitch" class="toggle-switch">
+              <div class="toggle-knob"></div>
+            </div>
+            <span class="toggle-label">Dark</span>
+          </div>
+        </header>
+
+        <!-- Body: Sidebar + Main -->
+        <div class="resume-body">
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <!-- Personal / Contact -->
+            <section>
+              <h2 class="section-title">Contact</h2>
+              <ul class="contact-list">
+                <li class="contact-item">
+                  <span class="label">Email: </span> Karthick.J@example.com
+                </li>
+                <li class="contact-item">
+                  <span class="label">Phone: </span> +91-98765 43210
+                </li>
+                <li class="contact-item">
+                  <span class="label">Location: </span> Coimbatore, India
+                </li>
+                <li class="contact-item">
+                  <span class="label">Portfolio: </span> your-portfolio.dev
+                </li>
+              </ul>
+            </section>
+
+            <!-- Skills -->
+            <section>
+              <h2 class="section-title">Skills</h2>
+              <div class="skills-grid">
+                <span class="skill-pill">HTML5</span>
+                <span class="skill-pill">CSS3</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">Responsive Design</span>
+                <span class="skill-pill">Git & GitHub</span>
+                <span class="skill-pill">UI Basics</span>
+              </div>
+              <div class="skill-level-bar">
+                <div class="skill-level-fill"></div>
+              </div>
+            </section>
+
+            <!-- Extras -->
+            <section>
+              <h2 class="section-title">Highlights</h2>
+              <p class="pill">Open to Internships</p>
+              <p
+                style="
+                  margin-top: 8px;
+                  font-size: 0.85rem;
+                  color: var(--muted-text);
+                "
+              >
+                Currently pursuing <strong>BCA</strong> and
+                <strong>Frontend Development</strong>. Passionate about clean UI
+                and smooth UX.
+              </p>
+            </section>
+          </aside>
+
+          <!-- MAIN CONTENT -->
+          <main class="main-content">
+            <!-- Summary -->
+            <section class="summary">
+              <h2 class="section-title">About Me</h2>
+              <p>
+                I’m a <strong>frontend developer in training</strong> and a BCA
+                student, focused on building clean, responsive and user-friendly
+                web interfaces. I enjoy turning ideas into interactive
+                experiences using <strong>HTML, CSS and JavaScript</strong>, and
+                I’m actively building projects to grow my skills.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Self-learner</span>
+                <span class="tag">Problem Solver</span>
+                <span class="tag">Detail Oriented</span>
+              </div>
+            </section>
+
+            <!-- Experience -->
+            <section>
+              <h2 class="section-title">Experience</h2>
+              <div class="item-list">
+                <article class="item">
+                  <div class="item-header">
+                    <div>
+                      <div class="item-title">Part-time R</div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script>
+      const html = document.documentElement;
+      const switchEl = document.getElementById("themeSwitch");
+
+      // Load saved theme if present
+      const savedTheme = localStorage.getItem("resume-theme");
+      if (savedTheme) {
+        html.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+          switchEl.classList.add("dark");
+        }
+      }
+
+      switchEl.addEventListener("click", () => {
+        const current = html.getAttribute("data-theme") || "light";
+        const next = current === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("resume-theme", next);
+        switchEl.classList.toggle("dark", next === "dark");
+      });
+    </script>
+  </body>
+</html>

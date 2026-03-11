@@ -38,8 +38,9 @@ FormValidation.prototype.validateEmail = function (input) {
 };
 
 FormValidation.prototype.validatePassword = function (input) {
+  
   if (input.value.length < 6) {
-    this.showError(input, "Password must be at least 6 characters long.");
+    this.shopwError(input, "Password must be at least 6 characters long.");
     return false;
   }
   this.clearError(input);

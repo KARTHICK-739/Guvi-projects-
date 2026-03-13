@@ -58,5 +58,6 @@ form.addEventListener("submit", function (event) {
   if (isNameValid && isEmailValid && isPasswordValid) {
     // Form is valid, you can submit it here
     alert("Form submitted successfully!");
+    form.submit();
   }
 });

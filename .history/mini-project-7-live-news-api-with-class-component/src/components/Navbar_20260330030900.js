@@ -1,0 +1,22 @@
+import React, {Component} from 'react';
+
+class Navbar extends Component {
+    render(){
+        return (
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+            <a className="navbar-brand fw-bold fs-4" href="/">
+              📰 LiveNews
+            </a>
+
+            <div className="d-flex gap-2">
+               <button className="btn btn-outline-light btn-sm">Technology</button>
+               <button className="btn btn-outline-light btn-sm">Sports</button>
+               <button className="btn btn-outline-light btn-sm">Business</button>
+               <button className="btn btn-outline-light btn-sm">H</button>
+            </div>
+        
+    
+          </nav>
+        );
+    }
+}
